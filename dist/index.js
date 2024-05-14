@@ -1,0 +1,1 @@
+"use strict";(()=>{function o(t){let e=document.createElement("textarea");return e.innerHTML=t,e.value}function c(){document.querySelectorAll('[text-to-svg="true"]').forEach(function(e){let n=o(e.innerHTML);e.innerHTML=n})}document.addEventListener("DOMContentLoaded",c);})();
