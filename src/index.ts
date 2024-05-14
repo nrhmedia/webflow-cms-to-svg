@@ -1,7 +1,15 @@
-import { greetUser } from '$utils/greet';
+function decodeHTMLEntities(text) {
+  var textArea = document.createElement('textarea');
+  textArea.innerHTML = text;
+  return textArea.value;
+}
 
-window.Webflow ||= [];
-window.Webflow.push(() => {
-  const name = 'John Doe';
-  greetUser(name);
-});
+function decodeSVGTextElements() {
+  var svgTextElements = document.querySelectorAll('[text-to-svg="true"]');
+  svgTextElements.forEach(function(element) {
+    var decodedText = decodeHTMLEntities(element.innerHTML);
+    element.innerHTML = decodedText;
+  });
+}
+
+document.addEventListener('DOMContentLoaded', decodeSVGTextElements);
